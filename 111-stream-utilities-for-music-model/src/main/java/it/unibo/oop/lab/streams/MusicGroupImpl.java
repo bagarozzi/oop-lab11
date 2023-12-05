@@ -31,17 +31,17 @@ public final class MusicGroupImpl implements MusicGroup {
     }
 
     @Override
-    public Stream<String> orderedSongNames() {
+    public Stream<String> orderedSongNames() { /* test works */
         return songs.stream().map(Song::getSongName).sorted();
     }
 
     @Override
-    public Stream<String> albumNames() {
+    public Stream<String> albumNames() { /* test works */
         return albums.keySet().stream();
     }
 
     @Override
-    public Stream<String> albumInYear(final int year) {
+    public Stream<String> albumInYear(final int year) { /* test works */
         return albums.entrySet().stream().filter(e -> e.getValue().equals(year)).map(Entry::getKey);
     }
 
@@ -51,7 +51,7 @@ public final class MusicGroupImpl implements MusicGroup {
     }
 
     @Override
-    public int countSongsInNoAlbum() {
+    public int countSongsInNoAlbum() { /* test works */
         return songs.stream().filter(song -> song.getAlbumName().isEmpty()).mapToInt(e -> 1).sum();
     }
 
