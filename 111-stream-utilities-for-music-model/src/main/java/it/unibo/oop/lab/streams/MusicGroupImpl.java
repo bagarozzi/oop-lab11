@@ -7,6 +7,7 @@ import java.util.Optional;
 import java.util.OptionalDouble;
 import java.util.Set;
 import java.util.stream.Stream;
+import java.util.Map.Entry;
 
 /**
  *
@@ -41,7 +42,7 @@ public final class MusicGroupImpl implements MusicGroup {
 
     @Override
     public Stream<String> albumInYear(final int year) {
-        return null;
+        return albums.entrySet().stream().filter(e -> e.getValue().equals(year)).map(Entry::getKey);
     }
 
     @Override
