@@ -8,6 +8,7 @@ import java.util.OptionalDouble;
 import java.util.Set;
 import java.util.stream.Stream;
 import java.util.Map.Entry;
+import java.util.Comparator;
 
 /**
  *
@@ -62,12 +63,18 @@ public final class MusicGroupImpl implements MusicGroup {
             .filter(song -> song.getAlbumName().equals(Optional.of(albumName)))
             .map(s -> s.getDuration())
             .reduce((x, y) -> x + y)
-            .get() / countSongs(albumName) );
+            .get() / countSongs(albumName));
     }
 
     @Override
     public Optional<String> longestSong() {
-        return null;
+        return songs.stream()
+            .max(new Comparator<Song>(){
+                public int compare(Song a, Song b){
+                    return Double.compare(a.getDuration(), b.getDuration());
+                }
+            })
+            .map(s -> s.getSongName());
     }
 
     @Override
