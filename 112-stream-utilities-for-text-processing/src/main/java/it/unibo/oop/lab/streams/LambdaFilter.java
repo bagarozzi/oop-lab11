@@ -40,7 +40,9 @@ public final class LambdaFilter extends JFrame {
          */
         IDENTITY("No modifications", Function.identity()),
         TOLOWERCASE("To lower case", String::toLowerCase),
-        CHARNUM("Count number of characters", s -> Integer.toString(s.length()));
+        CHARNUM("Count number of characters", s -> Integer.toString(s.length())),
+        LINESNUM("Count number of lines", s -> Long.toString(s.lines().count()));
+        /* ORDERWORDS("Order words alphabetically", s -> s); */
 
         private final String commandName;
         private final Function<String, String> fun;
