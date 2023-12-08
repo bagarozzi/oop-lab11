@@ -57,7 +57,7 @@ public final class MusicGroupImpl implements MusicGroup {
 
     @Override
     public OptionalDouble averageDurationOfSongs(final String albumName) {
-        return null; /* OptionalDouble.of(songs.stream().map(Song::getDuration).reduce((x, y) -> x + y).reduce(x -> x / songs.stream().count())); */ 
+        return null;
     }
 
     @Override
