@@ -47,7 +47,7 @@ public final class MusicGroupImpl implements MusicGroup {
 
     @Override
     public int countSongs(final String albumName) {
-        return songs.stream().filter(song -> song.getAlbumName().equals(albumName)).mapToInt(e -> 1).sum();
+        return songs.stream().filter(song -> song.getAlbumName().equals(Optional.of(albumName))).mapToInt(e -> 1).sum();
     }
 
     @Override
